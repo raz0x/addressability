@@ -1,0 +1,13 @@
+description: "Off Topic"
+publisher: "Various"
+keywords: "Off Topic"
+title: "Off Topic"
+
+name: "Off Topic"
+
+email: "email@addressability.com"
+
+permalink: /:categories/:title/
+
+plugins:
+  - jekyll-redirect-from
