@@ -7,20 +7,28 @@ subtitle: "to&nbsp;the&nbsp;Vortex"
 lead: "Te audire non possum. Musa sapientum fixa est in aure."
 
 ---
-{% assign n = site.data.quotes | size %}
-{% assign quotes = site.data.quotes | sample: n %}
 <div class="row g-2">
 	<h4 class="text-center">Just when you thought the world was falling apart, you are proved wrong.</h4>
 <div class="row">
 	<div class="col-md-8 offset-md-2 text-center">
 		<div id="quote" class="carousel slide carousel-fade" data-bs-ride="carousel">
-			<div class="carousel-inner"> {% for q in quotes %} <figure class="carousel-item{% if forloop.first == true %} active{% endif %}">
+			<div class="carousel-inner"> 
+				{% for q in site.data.quotes %}
+				<figure class="carousel-item{% if forloop.first == true %} active{% endif %}">
 					<blockquote class="blockquote text-center">
 						<p>{{q.quote}}</p>
 					</blockquote>
 					<figcaption class="blockquote-footer text-end">{{q.author}}</figcaption>
-				</figure> {% endfor %} </div>
+				</figure>
+				{% endfor %}
+			</div>
 		</div>
 	</div>
 </div>
 </div>
+<script>
+var rand = document.querySelector('.carousel-inner');
+	for (var i = rand.children.length; i >= 0; i--) {
+		rand.appendChild(rand.children[Math.random() * i | 0]);
+	}
+</script>
