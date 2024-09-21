@@ -1,18 +1,16 @@
 /* ---- base ---- */
 
-canvas {
+#particles-js {
     display: block;
-    vertical-align: bottom;
 }
 
 /* ---- particles.js container ---- */
-#particles-js {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: #696969;
-    background-image: url("");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: 50% 50%;
+canvas {
+    width: 100% !important;
+    height: 100% !important;
+    position: fixed !important;
+    z-index: -1 !important;
+    top: 0px !important;
+    left: 0px !important;
+    background-color: rgba(0, 0, 0, 0);
 }
