@@ -8,16 +8,10 @@
 <link rel="icon" href="data:,">
 <link rel="canonical" href="{{ site.url }}{{ page.url | replace:'index.html',''}}">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/css/bootstrap.min.css" integrity="sha256-PI8n5gCcz9cQqQXm3PEtDuPG8qx9oFsFctPg0S5zb8g=" crossorigin="anonymous">
-<link rel="stylesheet" href="/css/crossfade.css">
 <title>
 	{{site.title}}
 </title>
 <style>
-#crossfade {
-	position: relative;
-	width: 100%;
-	padding-bottom: 35.15625%
-}
 #navbar-toggle-cbox {
   display:none;
 }
@@ -28,8 +22,6 @@
 </head>
 
 <body>
-
-{% include banner.html %}
 
 {% include header.html %}
 
@@ -44,4 +36,6 @@
 </body>
 <script src="/js/color-modes.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/js/bootstrap.min.js" integrity="sha256-3gQJhtmj7YnV1fmtbVcnAV6eI4ws0Tr48bVZCThtCGQ=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/particles.js/particles.min.js"></script>
+<script src="/js/particles.json"></script>
 </html>
