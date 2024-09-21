@@ -27,8 +27,8 @@ lead: "Te audire non possum. Musa sapientum fixa est in aure."
 </div>
 </div>
 <script>
-var rand = document.querySelector('.carousel-inner');
-	for (var i = rand.children.length; i >= 0; i--) {
-		rand.appendChild(rand.children[Math.random() * i | 0]);
+	var shuffle  = document.querySelector('.carousel-inner');
+	for (var i = shuffle.children.length; i >= 0; i--) {
+		shuffle.appendChild(shuffle.children[Math.random() * i | 0]);
 	}
 </script>
