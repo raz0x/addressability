@@ -1,34 +1,27 @@
 ---
-layout: default2
+layout: default
 
 title: "Nothing&nbsp;to&nbsp;see&nbsp;here."
 subtitle: "Yes,&nbsp;no&nbsp;thing."
 lead: "Te audire non possum. Musa sapientum fixa est in aure."
 
 ---
-
-<section class="carousel" aria-label="Gallery">
-	<ol class="carousel__viewport">
-		<li id="carousel__slide1" tabindex="0" class="carousel__slide">
-			<div class="carousel__snapper">
-				<a href="#carousel__slide4" class="carousel__prev">Go to last slide</a>
-				<a href="#carousel__slide2" class="carousel__next">Go to next slide</a>
-			</div>
-		</li>
-		<li id="carousel__slide2" tabindex="0" class="carousel__slide">
-			<div class="carousel__snapper"></div>
-			<a href="#carousel__slide1" class="carousel__prev">Go to previous slide</a>
-			<a href="#carousel__slide3" class="carousel__next">Go to next slide</a>
-		</li>
-		<li id="carousel__slide3" tabindex="0" class="carousel__slide">
-			<div class="carousel__snapper"></div>
-			<a href="#carousel__slide2" class="carousel__prev">Go to previous slide</a>
-			<a href="#carousel__slide4" class="carousel__next">Go to next slide</a>
-		</li>
-		<li id="carousel__slide4" tabindex="0" class="carousel__slide">
-			<div class="carousel__snapper"></div>
-			<a href="#carousel__slide3" class="carousel__prev">Go to previous slide</a>
-			<a href="#carousel__slide1" class="carousel__next">Go to first slide</a>
-		</li>
-	</ol>
-</section>
+<div class="row my-5">
+	<div class="col-md-8 offset-md-2 text-center bg-body-secondary bg-opacity-75 shadow-lg rounded">
+		<div id="crossfade">
+			{% for q in site.data.quotes %}
+			<figure class="carousel-item{% if forloop.first == true %} active{% endif %}">
+				<blockquote class="blockquote text-center">
+					<p>{{q.quote}}</p>
+				</blockquote>
+				<figcaption class="blockquote-footer text-end">{{q.author}}</figcaption>
+			</figure>{% endfor %}
+		</div>
+	</div>
+</div>
+<script>
+	var ul = document.querySelector('.carousel-inner');
+	for (var i = ul.children.length; i >= 0; i--) {
+		ul.appendChild(ul.children[Math.random() * i | 0]);
+	}
+</script>
