@@ -1,0 +1,85 @@
+---
+Time: 20;
+---
+/*!
+ * http://jsfiddle.net/hajmd/
+ * https://www.milessebesta.com/web-design/scaling-div-height-proportional-to-width-trick/
+ Set the padding-bottom to the correct percentage, to find this, take your background image height; which in my case was 450px and divide it by the pixel width, which for me was 1280px.
+This 450/1280 = 35.15625%
+ */
+
+{% assign n = site.data.quotes | size %}
+
+#crossfade > * {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    color: var(--bs-body-color);
+    opacity: 0;
+    z-index: 0;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -webkit-animation: imageAnimation {{ page.Time * n }}s linear infinite 0s;
+    -moz-animation: imageAnimation {{ page.Time * n }}s linear infinite 0s;
+    -o-animation: imageAnimation {{ page.Time * n }}s linear infinite 0s;
+    -ms-animation: imageAnimation {{ page.Time * n }}s linear infinite 0s;
+    animation: imageAnimation {{ page.Time * n }}s linear infinite 0s;
+}
+
+{% for q in site.data.quotes %}
+#crossfade>*:nth-child({{ forloop.index + 1 }}) {
+    -webkit-animation-delay: {{ forloop.index * page.Time }}s;
+    -moz-animation-delay: {{ forloop.index * page.Time }}s;
+    -o-animation-delay: {{ forloop.index * page.Time }}s;
+    -ms-animation-delay: {{ forloop.index * page.Time }}s;
+    animation-delay: {{ forloop.index * page.Time }}s;
+}{% endfor %}
+
+
+@-webkit-keyframes imageAnimation {
+    0% { opacity: 0;
+    -webkit-animation-timing-function: ease-in; }
+    8% { opacity: 1;
+         -webkit-animation-timing-function: ease-out; }
+    17% { opacity: 1 }
+    25% { opacity: 0 }
+    100% { opacity: 0 }
+}
+@-moz-keyframes imageAnimation {
+    0% { opacity: 0;
+    -moz-animation-timing-function: ease-in; }
+    8% { opacity: 1;
+         -moz-animation-timing-function: ease-out; }
+    17% { opacity: 1 }
+    25% { opacity: 0 }
+    100% { opacity: 0 }
+}
+@-o-keyframes imageAnimation {
+    0% { opacity: 0;
+    -o-animation-timing-function: ease-in; }
+    8% { opacity: 1;
+         -o-animation-timing-function: ease-out; }
+    17% { opacity: 1 }
+    25% { opacity: 0 }
+    100% { opacity: 0 }
+}
+@-ms-keyframes imageAnimation {
+    0% { opacity: 0;
+    -ms-animation-timing-function: ease-in; }
+    8% { opacity: 1;
+         -ms-animation-timing-function: ease-out; }
+    17% { opacity: 1 }
+    25% { opacity: 0 }
+    100% { opacity: 0 }
+}
+@keyframes imageAnimation {
+    0% { opacity: 0;
+    animation-timing-function: ease-in; }
+    8% { opacity: 1;
+         animation-timing-function: ease-out; }
+    17% { opacity: 1 }
+    25% { opacity: 0 }
+    100% { opacity: 0 }
+}
