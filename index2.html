@@ -1,34 +1,11 @@
 ---
-layout: default
-permalink: /
+layout: default2
 
 title: "Nothing&nbsp;to&nbsp;see&nbsp;here."
 subtitle: "Yes,&nbsp;no&nbsp;thing."
 lead: "Te audire non possum. Musa sapientum fixa est in aure."
 
 ---
-<div class="row my-5">
-	<div class="col-md-8 offset-md-2 text-center bg-body-secondary bg-opacity-75 shadow-lg rounded">
-		<div id="quote" class="carousel slide carousel-fade" data-bs-ride="carousel">
-			<div class="carousel-inner"> 
-				{% for q in site.data.quotes %}
-				<figure class="carousel-item{% if forloop.first == true %} active{% endif %}">
-					<blockquote class="blockquote text-center">
-						<p>{{q.quote}}</p>
-					</blockquote>
-					<figcaption class="blockquote-footer text-end">{{q.author}}</figcaption>
-				</figure>
-				{% endfor %}
-			</div>
-		</div>
-	</div>
-</div>
-<script>
-var ul = document.querySelector('.carousel-inner');
-for (var i = ul.children.length; i >= 0; i--) {
-	ul.appendChild(ul.children[Math.random() * i | 0]);
-	}
-</script>
 
 <section class="carousel" aria-label="Gallery">
 	<ol class="carousel__viewport">
