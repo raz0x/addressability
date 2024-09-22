@@ -28,7 +28,7 @@ This 450/1280 = 35.15625%
 }
 
 {% for q in site.data.quotes %}
-#crossfade>*:nth-child({{ forloop.index + 1 }}) {
+#crossfade>*:nth-child({{ forloop.index| plus: 1 }}) {
     -webkit-animation-delay: {{ forloop.index | times: page.Time }}s;
     -moz-animation-delay: {{ forloop.index | times: page.Time }}s;
     -o-animation-delay: {{ forloop.index | times: page.Time }}s;
