@@ -37,45 +37,45 @@ Time: 20;
 @-webkit-keyframes imageAnimation {
     0% { opacity: 0;
     animation-timing-function: ease-in; }
-    2% { opacity: 1;
+    {{ 100 | divided_by: n | divided_by: 2 }}% { opacity: 1;
          animation-timing-function: ease-out; }
-    4% { opacity: 1 }
-    5% { opacity: 0 }
+    {{ 100 | divided_by: n | divided_by: 3 | times: 2 }}% { opacity: 1 }
+    {{ 100 | divided_by: n }}% { opacity: 0 }
     100% { opacity: 0 }
 }
 @-moz-keyframes imageAnimation {
     0% { opacity: 0;
     animation-timing-function: ease-in; }
-    2% { opacity: 1;
+    {{ 100 | divided_by: n | divided_by: 2 }}% { opacity: 1;
          animation-timing-function: ease-out; }
-    4% { opacity: 1 }
-    5% { opacity: 0 }
+    {{ 100 | divided_by: n | divided_by: 3 | times: 2 }}% { opacity: 1 }
+    {{ 100 | divided_by: n }}% { opacity: 0 }
     100% { opacity: 0 }
 }
 @-o-keyframes imageAnimation {
     0% { opacity: 0;
     animation-timing-function: ease-in; }
-    2% { opacity: 1;
+    {{ 100 | divided_by: n | divided_by: 2 }}% { opacity: 1;
          animation-timing-function: ease-out; }
-    4% { opacity: 1 }
-    5% { opacity: 0 }
+    {{ 100 | divided_by: n | divided_by: 3 | times: 2 }}% { opacity: 1 }
+    {{ 100 | divided_by: n }}% { opacity: 0 }
     100% { opacity: 0 }
 }
 @-ms-keyframes imageAnimation {
     0% { opacity: 0;
     animation-timing-function: ease-in; }
-    2% { opacity: 1;
+    {{ 100 | divided_by: n | divided_by: 2 }}% { opacity: 1;
          animation-timing-function: ease-out; }
-    4% { opacity: 1 }
-    5% { opacity: 0 }
+    {{ 100 | divided_by: n | divided_by: 3 | times: 2 }}% { opacity: 1 }
+    {{ 100 | divided_by: n }}% { opacity: 0 }
     100% { opacity: 0 }
 }
 @keyframes imageAnimation {
     0% { opacity: 0;
     animation-timing-function: ease-in; }
-    2% { opacity: 1;
+    {{ 100 | divided_by: n | divided_by: 2 }}% { opacity: 1;
          animation-timing-function: ease-out; }
-    4% { opacity: 1 }
-    5% { opacity: 0 }
+    {{ 100 | divided_by: n | divided_by: 3 | times: 2 }}% { opacity: 1 }
+    {{ 100 | divided_by: n }}% { opacity: 0 }
     100% { opacity: 0 }
 }
