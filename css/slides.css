@@ -11,7 +11,7 @@ This 450/1280 = 35.15625%
     position: absolute;
     top: 0px;
     left: 0px;
-    color: transparent;
+    color: var(--bs-body-color);
     opacity: 0;
     z-index: 0;
     backface-visibility: hidden;
