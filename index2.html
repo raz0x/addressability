@@ -6,17 +6,17 @@ subtitle: "Yes,&nbsp;no&nbsp;thing."
 lead: "Te audire non possum. Musa sapientum fixa est in aure."
 
 ---
-<div class="row my-5">
-	<div id="crossfade" class="col-md-8 offset-md-2 bg-body-secondary bg-opacity-75 shadow-lg rounded position-relative">
+<section class="bg-body-secondary bg-opacity-75 shadow-lg rounded mx-auto my-5" style="max-width: 23rem;">
+	<div id="crossfade" class="card position-relative">
 			{% for q in site.data.quotes %}
-			<figure>
+			<div class="card-body">
 				<blockquote class="blockquote text-center">
 					<p>{{q.quote}}</p>
 				</blockquote>
-				<figcaption class="blockquote-footer text-end">{{q.author}}</figcaption>
-			</figure>{% endfor %}
+				<footer class="blockquote-footer text-end">{{q.author}}</footer>
+			</div>{% endfor %}
 	</div>
-</div>
+</section>
 <script>
 	var ul = document.querySelector('#crossfade');
 	for (var i = ul.children.length; i >= 0; i--) {
