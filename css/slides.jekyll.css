@@ -16,25 +16,24 @@ This 450/1280 = 35.15625%
     position: absolute;
     top: 0px;
     left: 0px;
-    color: var(--bs-body-color);
     opacity: 0;
     z-index: 0;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
-    -webkit-animation: imageAnimation {{ page.Time * n }}s linear infinite 0s;
-    -moz-animation: imageAnimation {{ page.Time * n }}s linear infinite 0s;
-    -o-animation: imageAnimation {{ page.Time * n }}s linear infinite 0s;
-    -ms-animation: imageAnimation {{ page.Time * n }}s linear infinite 0s;
-    animation: imageAnimation {{ page.Time * n }}s linear infinite 0s;
+    -webkit-animation: imageAnimation {{ page.Time | times: n }}s linear infinite 0s;
+    -moz-animation: imageAnimation {{ page.Time | times: n }}s linear infinite 0s;
+    -o-animation: imageAnimation {{ page.Time | times: n }}s linear infinite 0s;
+    -ms-animation: imageAnimation {{ page.Time | times: n }}s linear infinite 0s;
+    animation: imageAnimation {{ page.Time | times: n }}s linear infinite 0s;
 }
 
 {% for q in site.data.quotes %}
 #crossfade>*:nth-child({{ forloop.index + 1 }}) {
-    -webkit-animation-delay: {{ forloop.index * page.Time }}s;
-    -moz-animation-delay: {{ forloop.index * page.Time }}s;
-    -o-animation-delay: {{ forloop.index * page.Time }}s;
-    -ms-animation-delay: {{ forloop.index * page.Time }}s;
-    animation-delay: {{ forloop.index * page.Time }}s;
+    -webkit-animation-delay: {{ forloop.index | times: page.Time }}s;
+    -moz-animation-delay: {{ forloop.index | times: page.Time }}s;
+    -o-animation-delay: {{ forloop.index | times: page.Time }}s;
+    -ms-animation-delay: {{ forloop.index | times: page.Time }}s;
+    animation-delay: {{ forloop.index | times: page.Time }}s;
 }{% endfor %}
 
 
