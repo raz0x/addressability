@@ -10,7 +10,7 @@ lead: "Te audire non possum. Musa sapientum fixa est in aure."
 	<div class="col-md-8 offset-md-2 text-center bg-body-secondary bg-opacity-75 shadow-lg rounded">
 		<div id="crossfade">
 			{% for q in site.data.quotes %}
-			<figure class="carousel-item{% if forloop.first == true %} active{% endif %}">
+			<figure>
 				<blockquote class="blockquote text-center">
 					<p>{{q.quote}}</p>
 				</blockquote>
