@@ -9,12 +9,12 @@ lead: "Te audire non possum. Musa sapientum fixa est in aure."
 <div class="row my-5">
 	<div id="crossfade" class="col-md-8 offset-md-2 position-relative">
 			{% for q in site.data.quotes %}
-			<div class="bg-body-secondary bg-opacity-75 shadow-lg rounded">
+			<figure class="bg-body-secondary bg-opacity-75 shadow-lg rounded">
 				<blockquote class="blockquote text-center">
 					<p>{{q.quote}}</p>
 				</blockquote>
-				<p class="blockquote-footer text-end">{{q.author}}</p>
-			</div>{% endfor %}
+				<figcaption class="blockquote-footer text-end">{{q.author}}</figcaption>
+			</figure>{% endfor %}
 	</div>
 </div>
 <script>
