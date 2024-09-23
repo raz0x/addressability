@@ -8,7 +8,7 @@ Time: 20;
 {% assign n = site.data.quotes | size | divided_by: 1.0 %}
 
 #crossfade {
-    display: grid !important!
+    display: grid !important
 }
 
 #crossfade > * {
