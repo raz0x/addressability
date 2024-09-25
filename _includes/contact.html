@@ -4,25 +4,25 @@
     <div class="form-floating mb-3">
         <input type="text" id="contactName" class="form-control" name="name" placeholder="Name" required />
         <label class="form-label" for="contactName">Name</label>
-        <div class="invalid-feedback"> Please provide your name. </div>
+        <div class="empty-feedback invalid-feedback"> Please provide your name. </div>
     </div>
     <!-- Email input -->
     <div class="form-floating mb-3">
         <input type="email" id="contactEmail" class="form-control" name="email" placeholder="Email" required/>
         <label class="form-label" for="contactEmail">Email</label>
-        <div class="invalid-feedback"> Please provide a valid email address. </div>
+        <div class="empty-feedback invalid-feedback"> Please provide a valid email address. </div>
     </div>
     <!-- Subject input -->
     <div class="form-floating mb-3">
         <input type="text" id="contactSubject" class="form-control" name="subject" placeholder="Subject" value="Web Query" required />
         <label class="form-label" for="contactSubject">Subject</label>
-        <div class="invalid-feedback"> Please enter your subject. </div>
+        <div class="empty-feedback invalid-feedback"> Please enter your subject. </div>
     </div>
     <!-- Message input -->
     <div class="form-floating mb-3">
         <textarea class="form-control" id="contactMessage" name="message" placeholder="Message" style="height: 10rem" required></textarea>
         <label class="form-label" for="contactMessage">Message</label>
-        <div class="invalid-feedback"> Please enter your message. </div>
+        <div class="empty-feedback invalid-feedback"> Please enter your message. </div>
     </div>
     <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
     <input type="hidden" name="redirect" value="https://web3forms.com/success">
@@ -30,74 +30,74 @@
     <button type="submit" class="btn btn-primary mb-2">Send</button>
 </form>
 <script>
-    (function () {
-        "use strict";
-        /*
-         * Form Validation
-         */
+(function () {
+  "use strict";
+  /*
+   * Form Validation
+   */
 
-        // Fetch all the forms we want to apply custom validation styles to
-        const forms = document.querySelectorAll(".needs-validation");
-        const result = document.getElementById("result");
-        // Loop over them and prevent submission
-        Array.prototype.slice.call(forms).forEach(function (form) {
-            form.addEventListener(
-                "submit",
-                function (event) {
-                    if (!form.checkValidity()) {
-                        event.preventDefault();
-                        event.stopPropagation();
+  // Fetch all the forms we want to apply custom validation styles to
+  const forms = document.querySelectorAll(".needs-validation");
+  const result = document.getElementById("result");
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms).forEach(function (form) {
+    form.addEventListener(
+      "submit",
+      function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault();
+          event.stopPropagation();
 
-                        form.querySelectorAll(":invalid")[0].focus();
-                    } else {
-                        /*
-                         * Form Submission using fetch()
-                         */
-                        event.preventDefault();
-                        event.stopPropagation();
+          form.querySelectorAll(":invalid")[0].focus();
+        } else {
+          /*
+           * Form Submission using fetch()
+           */
+          event.preventDefault();
+          event.stopPropagation();
+          
+          const formData = new FormData(form);
+          const object = Object.fromEntries(formData);
+          const json = JSON.stringify(object);
+          result.innerHTML = "Please wait...";
 
-                        const formData = new FormData(form);
-                        const object = Object.fromEntries(formData);
-                        const json = JSON.stringify(object);
-                        result.innerHTML = "Please wait...";
-
-                        fetch("https://api.web3forms.com/submit", {
-                            method: "POST",
-                            headers: {
-                                "Content-Type": "application/json",
-                                Accept: "application/json",
-                            },
-                            body: json,
-                        })
-                            .then(async (response) => {
-                                let json = await response.json();
-                                if (response.status == 200) {
-                                    result.innerHTML = json.message;
-                                    result.classList.remove("text-gray-500");
-                                    result.classList.add("text-green-500");
-                                } else {
-                                    console.log(response);
-                                    result.innerHTML = json.message;
-                                    result.classList.remove("text-gray-500");
-                                    result.classList.add("text-green-500");
-                                }
-                            })
-                            .catch((error) => {
-                                console.log(error);
-                                result.innerHTML = "Something went wrong!";
-                            })
-                            .then(function () {
-                                form.reset();
-                                form.classList.remove("was-validated");
-                                setTimeout(() => {
-                                    result.style.display = "none";
-                                }, 5000);
-                            });
-                    }
-                    form.classList.add("was-validated");
-                },
-                false
-            );
-        });
-    })();
+          fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+            },
+            body: json,
+          })
+            .then(async (response) => {
+              let json = await response.json();
+              if (response.status == 200) {
+                result.innerHTML = json.message;
+                result.classList.remove("text-gray-500");
+                result.classList.add("text-green-500");
+              } else {
+                console.log(response);
+                result.innerHTML = json.message;
+                result.classList.remove("text-gray-500");
+                result.classList.add("text-red-500");
+              }
+            })
+            .catch((error) => {
+              console.log(error);
+              result.innerHTML = "Something went wrong!";
+            })
+            .then(function () {
+              form.reset();
+              form.classList.remove("was-validated");
+              setTimeout(() => {
+                result.style.display = "none";
+              }, 5000);
+            });
+        }
+        form.classList.add("was-validated");
+      },
+      false
+    );
+  });
+})();
 </script>
