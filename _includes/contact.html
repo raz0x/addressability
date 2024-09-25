@@ -14,14 +14,9 @@
     </div>
     <!-- Subject input -->
     <div class="form-floating mb-3">
-        <select class="form-select" id="contactSubject" name="subject" required>
-            <option selected disabled value="">Choose...</option>
-            <option value="1">Query</option>
-            <option value="2">Booking</option>
-            <option value="3">Other</option>
-        </select>
-        <label for="contactSubject">Subject</label>
-        <div class="invalid-feedback"> Please select your subject. </div>
+        <input type="text" id="contactSubject" class="form-control" name="subject" placeholder="Subject" value="Web Query" required />
+        <label class="form-label" for="contactSubject">Subject</label>
+        <div class="invalid-feedback"> Please enter your subject. </div>
     </div>
     <!-- Message input -->
     <div class="form-floating mb-3">
@@ -74,16 +69,7 @@
                             },
                             body: json,
                         })
-                        .then(async (response) => {
-                            let json = await response.json();
-                            if (response.status == 200) {
-                                result.innerHTML = json.message;
-                            } else {
-                                console.log(response);
-                                result.innerHTML = json.message;
-                            }
-                        })
-                        .catch((error) => {
+                            .catch((error) => {
                                 console.log(error);
                                 result.innerHTML = "Something went wrong!";
                             })
