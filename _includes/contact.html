@@ -4,20 +4,24 @@
     <div class="form-floating mb-3">
         <input type="text" id="contactName" class="form-control" name="name" placeholder="Name" required />
         <label class="form-label" for="contactName">Name</label>
-        <div class="invalid-feedback"> Please provide name. </div>
+        <div class="invalid-feedback"> Please provide your name. </div>
     </div>
     <!-- Email input -->
     <div class="form-floating mb-3">
         <input type="email" id="contactEmail" class="form-control" name="email" placeholder="Email" required/>
         <label class="form-label" for="contactEmail">Email</label>
         <div class="invalid-feedback"> Please provide a valid email address. </div>
-
     </div>
     <!-- Subject input -->
     <div class="form-floating mb-3">
-        <input type="text" id="contactSubject" class="form-control" name="subject" placeholder="Subject" value="Web Query" required />
         <label class="form-label" for="contactSubject">Subject</label>
-        <div class="invalid-feedback"> Please enter your subject. </div>
+        <select class="form-select" id="contactSubject" name="subject" required>
+            <option selected disabled value="">Choose...</option>
+            <option value="1">Query</option>
+            <option value="2">Booking</option>
+            <option value="3">Other</option>
+        </select>
+        <div class="invalid-feedback"> Please select your subject. </div>
     </div>
     <!-- Message input -->
     <div class="form-floating mb-3">
