@@ -28,6 +28,7 @@
     <input type="hidden" name="redirect" value="https://web3forms.com/success">
     <!-- Submit button -->
     <button type="submit" class="btn btn-primary mb-2">Send</button>
+    <p class="text-info" id="result"></p>
 </form>
 <script>
 (function () {
@@ -73,9 +74,13 @@
               let json = await response.json();
               if (response.status == 200) {
                 result.innerHTML = json.message;
+                result.classList.remove("text-info");
+                result.classList.add("text-success");
               } else {
                 console.log(response);
                 result.innerHTML = json.message;
+                result.classList.remove("text-info");
+                result.classList.add("text-danger");
               }
             })
             .catch((error) => {
