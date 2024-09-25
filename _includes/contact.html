@@ -1,4 +1,4 @@
-<form action="https://api.web3forms.com/submit" method="POST" class="needs-validation" novalidate>
+<form action="https://api.web3forms.com/submit" method="POST" class="needs-validation" id="form" novalidate>
     <input type="hidden" name="access_key" value="faa5b8cc-8a20-47d2-bbef-8c4ec3170416">
     <!-- Name input -->
     <div class="form-floating mb-3">
@@ -73,13 +73,9 @@
               let json = await response.json();
               if (response.status == 200) {
                 result.innerHTML = json.message;
-                result.classList.remove("text-gray-500");
-                result.classList.add("text-green-500");
               } else {
                 console.log(response);
                 result.innerHTML = json.message;
-                result.classList.remove("text-gray-500");
-                result.classList.add("text-red-500");
               }
             })
             .catch((error) => {
