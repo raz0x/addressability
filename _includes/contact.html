@@ -4,27 +4,26 @@
     <div class="form-floating mb-3">
         <input type="text" id="contactName" class="form-control" name="name" placeholder="Name" required />
         <label class="form-label" for="contactName">Name</label>
-        <div class="empty-feedback invalid-feedback text-red-400 text-sm mt-1"> Please provide name. </div>
+        <div class="invalid-feedback"> Please provide name. </div>
     </div>
     <!-- Email input -->
     <div class="form-floating mb-3">
         <input type="email" id="contactEmail" class="form-control" name="email" placeholder="Email" required/>
         <label class="form-label" for="contactEmail">Email</label>
-        <div class="empty-feedback text-red-400 text-sm mt-1"> Please provide your email address. </div>
-        <div class="invalid-feedback text-red-400 text-sm mt-1"> Please provide a valid email address. </div>
+        <div class="invalid-feedback"> Please provide a valid email address. </div>
 
     </div>
     <!-- Subject input -->
     <div class="form-floating mb-3">
         <input type="text" id="contactSubject" class="form-control" name="subject" placeholder="Subject" value="Web Query" required />
         <label class="form-label" for="contactSubject">Subject</label>
-        <div class="empty-feedback invalid-feedback text-red-400 text-sm mt-1"> Please enter your subject. </div>
+        <div class="invalid-feedback"> Please enter your subject. </div>
     </div>
     <!-- Message input -->
     <div class="form-floating mb-3">
         <textarea class="form-control" id="contactMessage" name="message" placeholder="Message" style="height: 10rem" required></textarea>
         <label class="form-label" for="contactMessage">Message</label>
-        <div class="empty-feedback invalid-feedback text-red-400 text-sm mt-1"> Please enter your message. </div>
+        <div class="invalid-feedback"> Please enter your message. </div>
     </div>
     <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
     <input type="hidden" name="redirect" value="https://web3forms.com/success">
@@ -71,19 +70,6 @@
                             },
                             body: json,
                         })
-                            .then(async (response) => {
-                                let json = await response.json();
-                                if (response.status == 200) {
-                                    result.innerHTML = json.message;
-                                    result.classList.remove("text-gray-500");
-                                    result.classList.add("text-green-500");
-                                } else {
-                                    console.log(response);
-                                    result.innerHTML = json.message;
-                                    result.classList.remove("text-gray-500");
-                                    result.classList.add("text-red-500");
-                                }
-                            })
                             .catch((error) => {
                                 console.log(error);
                                 result.innerHTML = "Something went wrong!";
